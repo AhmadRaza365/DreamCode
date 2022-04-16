@@ -36,7 +36,7 @@ export default function Editor(props) {
       <ControlledEditor
         onBeforeChange={handleChange}
         value={value}
-        className="code-mirror-wrapper"
+        className={`code-mirror-wrapper ${open? 'opedEditor' : ''}`}
         options={{
           lineWrapping: true,
           lint: true,

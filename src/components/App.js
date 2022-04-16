@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import Editor from './Editor'
-import useLocalStorage from '../hooks/useLocalStorage'
+import React, { useState, useEffect } from "react";
+import Editor from "./Editor";
+import useLocalStorage from "../hooks/useLocalStorage";
+import Header from "./Header";
 
 function App() {
-  const [html, setHtml] = useLocalStorage('html', '')
-  const [css, setCss] = useLocalStorage('css', '')
-  const [js, setJs] = useLocalStorage('js', '')
-  const [srcDoc, setSrcDoc] = useState('')
+  const [html, setHtml] = useLocalStorage("html", "");
+  const [css, setCss] = useLocalStorage("css", "");
+  const [js, setJs] = useLocalStorage("js", "");
+  const [srcDoc, setSrcDoc] = useState("");
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -16,14 +17,15 @@ function App() {
           <style>${css}</style>
           <script>${js}</script>
         </html>
-      `)
-    }, 250)
+      `);
+    }, 250);
 
-    return () => clearTimeout(timeout)
-  }, [html, css, js])
+    return () => clearTimeout(timeout);
+  }, [html, css, js]);
 
   return (
     <>
+      <Header />
       <div className="pane top-pane">
         <Editor
           language="xml"
@@ -44,7 +46,7 @@ function App() {
           onChange={setJs}
         />
       </div>
-      <div className="pane">
+      <div className="bottom-pane">
         <iframe
           srcDoc={srcDoc}
           title="output"
@@ -55,7 +57,7 @@ function App() {
         />
       </div>
     </>
-  )
+  );
 }
 
 export default App;
