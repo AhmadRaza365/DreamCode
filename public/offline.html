@@ -9,10 +9,59 @@
     />
 
     <title>DreamCode</title>
+    <style type="text/css">
+      html {
+        height: 100%;
+      }
+      body {
+        height: 100%;
+        margin: 0;
+        background: #19392B;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .bg {
+        align-items: center;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 40px 8%;
+        border-radius: 20px;
+        background: #19392B;
+      }
+
+      .offline-text {
+        font-size: 2em;
+        color: #FBED28;
+      }
+      .offline-btn{
+        background: #FBED28;
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+        color: #19392B;
+        font-size: 1.2em;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div class="bg">
+      <h2 class="offline-text">
+        <span>Please go online to use IDE.</span>
+      </h2>
+      <button class="offline-btn" onclick="reloadWindow()" >Reload Window</button>
+    </div>
+
+    <script>
+      function reloadWindow(){
+        window.location.reload();
+      }
+    </script>
 
   </body>
 </html>
